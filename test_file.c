@@ -109,7 +109,7 @@ void train_generator(struct shared_space *shared){
 	for(int i=0; i<nele; i++)
 	{
 		// Initialize constant target pointers
-		weights_ptr[i] = 0.5;
+		weights_ptr[i] = 1.0;
 	}
 
 	// Training
@@ -123,7 +123,8 @@ void train_generator(struct shared_space *shared){
 			// Intialize array with values
 			for(int i=0; i<nele; i++)
 			{
-				g_input_ptr[i] = target_distribution(rand_generator);
+				// g_input_ptr[i] = target_distribution(rand_generator);
+				g_input_ptr[i] = i;
 			}
 
 			generator.Forward(g_input_v);
